@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    body {
+      font-family: sans-serif;
+    }
+    body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+    .txt-box {
+      width: 100%;
+      height: 70px;
+      background-color: #2f3a4c;
+      margin-top: 10px;
+    }
+    .txt {
+      width: 94.5%;
+      height: 70px;
+      background-color: #707a8a;
+      margin-left: 5px;
+      font-size: 40px;
+      color: white;
+      direction: rtl;
+    }
+    .container {
+      border-radius: 10px;
+      display: grid;
+      align-items: center;
+      justify-content: center;
+      background-color: #263650;
+      height: 520px;
+      width: 345px;
+    }
+
+    .btn-container {
+      /* display: grid; */
+      padding: 5px;
+    }
+    .btn_btn-input {
+      border-radius: 15px;
+      cursor: pointer;
+      height: 80px;
+      width: 80px;
+      padding: 0px;
+      border: 1px solid white;
+      background-color: #263650;
+      color: white;
+      font-size: 20px;
+    }
+    .btn_btn-input:hover {
+      background-color: rgb(5, 31, 51);
+      transition: ease-out 0.2s;
+    }
+    .btn_btn-input_0 {
+      cursor: pointer;
+      height: 80px;
+      width: 164px;
+      padding: 0px;
+      border: 1px solid white;
+      background-color: #263650;
+      color: white;
+      font-size: 20px;
+      border-radius: 15px;
+    }
+
+    .btn-4-sp {
+      margin-top: 2px;
+    }
+    .btn-4 {
+      margin-top: 3px;
+    }
+    .btn_btn-input_equal {
+      cursor: pointer;
+      height: 80px;
+      width: 80px;
+      padding: 0px;
+      border: 1px solid white;
+      background-color: #263650;
+      grid-column: span 2;
+      color: white;
+      font-size: 20px;
+      border-radius: 15px;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <div class="txt-box">
+        <input disabled type="text" id="input_txt" class="txt" />
+      </div>
+      <div class="inner_container">
+        <div class="btn-container">
+          <div class="btn-4">
+            <button
+              class="btn_btn-input"
+              style="background-color: #1c7f92"
+              onclick="clearcliked()"
+              id="getclear"
+            >
+              C
+            </button>
+            <button
+              class="btn_btn-input"
+              style="background-color: #1c7f92"
+              onclick="cutoneval()"
+              disabled
+            >
+              ⌦
+            </button>
+            <button
+              class="btn_btn-input"
+              style="background-color: #1c7f92"
+              id="getdevide"
+              value="÷"
+              onclick="devidecliked(),disText('/')"
+            >
+              ÷
+            </button>
+            <button
+              class="btn_btn-input"
+              style="background-color: #1c7f92"
+              disabled
+            >
+              %
+            </button>
+          </div>
+          <div class="btn-4">
+            <button
+              class="btn_btn-input"
+              id="get7"
+              value="7"
+              onclick="sevencliked(),disText('7')"
+            >
+              7
+            </button>
+            <button
+              class="btn_btn-input"
+              id="get8"
+              value="8"
+              onclick="eightcliked(),disText('8')"
+            >
+              8
+            </button>
+            <button
+              class="btn_btn-input"
+              id="get9"
+              value="9"
+              onclick="ninecliked(),disText('9')"
+            >
+              9
+            </button>
+            <button
+              class="btn_btn-input"
+              style="background-color: #1c7f92"
+              value="x"
+              id="getmul"
+              onclick="mulcliked(),disText('*')"
+            >
+              x
+            </button>
+          </div>
+          <div class="btn-4">
+            <button
+              class="btn_btn-input"
+              id="get4"
+              value="4"
+              onclick="fourcliked(),disText('4')"
+            >
+              4
+            </button>
+            <button
+              class="btn_btn-input"
+              id="get5"
+              value="5"
+              onclick="fivecliked(),disText('5')"
+            >
+              5
+            </button>
+            <button
+              class="btn_btn-input"
+              id="get6"
+              value="6"
+              onclick="sixcliked(),disText('6')"
+            >
+              6
+            </button>
+            <button
+              class="btn_btn-input"
+              style="background-color: #1c7f92"
+              value="-"
+              id="getminus"
+              onclick="minuscliked(),disText('-')"
+            >
+              -
+            </button>
+          </div>
+          <div class="btn-4">
+            <button
+              class="btn_btn-input"
+              id="get1"
+              value="1"
+              onclick="onecliked(),disText('1')"
+            >
+              1
+            </button>
+            <button
+              class="btn_btn-input"
+              value="2"
+              id="get2"
+              onclick="twocliked('2'),disText('2')"
+            >
+              2
+            </button>
+            <button
+              class="btn_btn-input"
+              value="3"
+              id="get3"
+              onclick="threecliked(),disText('3')"
+            >
+              3
+            </button>
+            <button
+              class="btn_btn-input"
+              style="background-color: #1c7f92"
+              value="+"
+              id="getplus"
+              onclick="pluscliked(),disText('+')"
+            >
+              +
+            </button>
+          </div>
+          <div class="btn-4-sp">
+            <button
+              class="btn_btn-input_0 ad"
+              value="0"
+              id="get0"
+              onclick="zerocliked(),disText('0')"
+            >
+              0
+            </button>
+            <button class="btn_btn-input">.</button>
+            <button
+              class="btn_btn-input_equal"
+              style="background-color: rgb(198, 142, 11)"
+              onclick="calcu()"
+            >
+              =
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <button onclick="changeText()">click here</button> -->
+  </body>
+
+  <script>
+    let displayVlaue = "";
+    function onecliked() {
+      let val1 = document.getElementById("get1").value;
+      val1 = parseInt(val1);
+      console.log(val1);
+      document.getElementById("input_txt").value = val1;
+    }
+    function twocliked() {
+      let val2 = document.getElementById("get2").value;
+      val2 = parseInt(val2);
+
+      document.getElementById("input_txt").value = val2;
+    }
+    function threecliked() {
+      let val3 = document.getElementById("get3").value;
+      val3 = parseInt(val3);
+
+      document.getElementById("input_txt").value = val3;
+    }
+    function fourcliked() {
+      let val4 = document.getElementById("get4").value;
+      val4 = parseInt(val4);
+
+      document.getElementById("input_txt").value = val4;
+    }
+    function fivecliked() {
+      let val5 = document.getElementById("get5").value;
+      val5 = parseInt(val5);
+
+      document.getElementById("input_txt").value = val5;
+    }
+    function sixcliked() {
+      let val6 = document.getElementById("get6").value;
+      val6 = parseInt(val6);
+
+      document.getElementById("input_txt").value = val6;
+    }
+    function sevencliked() {
+      let val7 = document.getElementById("get7").value;
+      val7 = parseInt(val7);
+
+      document.getElementById("input_txt").value = val7;
+    }
+    function eightcliked() {
+      let val8 = document.getElementById("get8").value;
+      val8 = parseInt(val8);
+
+      document.getElementById("input_txt").value = val8;
+    }
+    function ninecliked() {
+      let val9 = document.getElementById("get9").value;
+      val9 = parseInt(val9);
+
+      document.getElementById("input_txt").value = val9;
+    }
+    function zerocliked() {
+      let val0 = document.getElementById("get0").value;
+      val0 = parseInt(val0);
+
+      document.getElementById("input_txt").value = val0;
+    }
+    function pluscliked() {
+      let valplus = document.getElementById("getplus").value;
+
+      document.getElementById("input_txt").value = valplus;
+    }
+    function minuscliked() {
+      let valminus = document.getElementById("getminus").value;
+
+      document.getElementById("input_txt").value = valminus;
+    }
+    function mulcliked() {
+      let valmul = document.getElementById("getmul").value;
+
+      document.getElementById("input_txt").value = valmul;
+    }
+    function devidecliked() {
+      let valdevide = document.getElementById("getdevide").value;
+      console.log(valdevide);
+      document.getElementById("input_txt").value = valdevide;
+    }
+
+    function clearcliked() {
+      let valclear = document.getElementById("getclear").value;
+      displayVlaue = "";
+      console.log("values cleared");
+      document.getElementById("input_txt").value = "";
+    }
+
+    function disText(value) {
+      displayVlaue += value;
+      console.log(displayVlaue, "displayvalue");
+      // console.log(value);
+      document.getElementById("input_txt").value = displayVlaue;
+    }
+
+    function cutoneval() {
+      let display = document.getElementById("input_txt").value;
+      display = displayVlaue.slice(0, -1);
+      console.log("last value removed by ⌦");
+      display = document.getElementById("input_txt").value = display;
+    }
+
+    function calcu() {
+      displayVlaue = eval(displayVlaue);
+      document.getElementById("input_txt").value = displayVlaue;
+    }
+  </script>
+</html>
